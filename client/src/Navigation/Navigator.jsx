@@ -3,6 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import SideTab from "../components/SideTab/SideTab";
 import Login from "../pages/Login/Login";
 
+//residents
+import Home from "../pages/Residents/Home";
+
+import ReportTrash from "../pages/Residents/ReportTrash";
+
 // Mock User - Change role to test: "Resident", "TrashMan", "SuperVisor", "SanittaryInspector", "MHO"
 const mockUser = { role: "Resident", name: "Alex Rivera" };
 
@@ -22,9 +27,9 @@ return (
         {/* RESIDENT ROUTES */}
         {mockUser?.role === "Resident" && (
             <>
-            <Route index element={<div>Resident Dashboard Content</div>} />
+            <Route index element={<Home/>} />
             <Route path="map" element={<div>Map View Content</div>} />
-            <Route path="report-trash" element={<div>Report Trash Form</div>} />
+            <Route path="report-trash" element={<ReportTrash/>} />
             <Route path="statistics" element={<div>Resident Statistics</div>} />
             <Route path="quiz" element={<div>Pollution Quiz Content</div>} />
             <Route path="feedback" element={<div>Feedback Form</div>} />

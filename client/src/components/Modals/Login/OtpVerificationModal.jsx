@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Certificate } from "../../assets/icons/icons";
-import ToastNotification from "../../components/Notification/ToastNotification";
+import { Certificate } from "../../../assets/icons/icons";
+import ToastNotification from "../../Notification/ToastNotification";
 
 function OtpVerificationModal({ phoneNumber, method, userEmail, onClose }) {
 const [otp, setOtp] = useState(["", "", "", ""]);

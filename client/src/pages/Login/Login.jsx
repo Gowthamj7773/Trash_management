@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Settings, Mobile, Email } from "../../assets/icons/icons";
 import ToastNotification from "../../components/Notification/ToastNotification";
 import { ToastContainer } from "react-toastify";
-import OtpVerificationModal from "../../components/Modals/OtpVerificationModal";
+import OtpVerificationModal from "../../components/Modals/Login/OtpVerificationModal";
 
 // Mock database declared at the top level
 const mockUsers = [

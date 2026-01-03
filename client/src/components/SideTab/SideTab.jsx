@@ -28,13 +28,16 @@ notifications: 3
 function BottomNav({ user, menuItems, isActive }) {
 const navigate = useNavigate();
 
+// Filter menu items to only show those with showMobile: true
+const mobileMenuItems = menuItems.filter(item => item.showMobile === true);
+
 function handleNavigation(path) {
 navigate(path === "" ? "/" : `/${path}`);
 }
 
 return (
 <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-secondary shadow-[0_-8px_30px_rgba(0,0,0,0.08)] h-20 px-4 flex items-center justify-around z-50">
-    {menuItems.map(function(item) {
+    {mobileMenuItems.map(function(item) {
     const active = isActive(item.id);
     const Icon = item.icon;
 
@@ -73,32 +76,34 @@ const location = useLocation();
 
 const menuConfig = {
 Resident: [
-    { id: "", label: "Home", icon: Home },
-    { id: "map", label: "Map", icon: Map },
-    { id: "statistics", label: "Stats", icon: Stats },
-    { id: "quiz", label: "Quiz", icon: Certificate },
-    { id: "settings", label: "Settings", icon: Settings },
+    { id: "", label: "Home", icon: Home, showMobile: true },
+    { id: "map", label: "Map", icon: Map, showMobile: true },
+    { id: "report-trash", label: "Report trash", icon: Camera, showMobile: true },
+    { id: "statistics", label: "Statistics", icon: Stats, showMobile: true },
+    { id: "quiz", label: "Quiz", icon: Certificate, showMobile: true },
+    { id: "feedback", label: "Feedback", icon: FeedBack, showMobile: false },
+    { id: "settings", label: "Settings", icon: Settings, showMobile: true },
 ],
 TrashMan: [
-    { id: "", label: "Home", icon: Home },
-    { id: "routes-timing", label: "Routes", icon: Map },
-    { id: "immediate-tasks", label: "Tasks", icon: Task },
-    { id: "statistics", label: "Stats", icon: Stats },
-    { id: "settings", label: "Settings", icon: Settings },
+    { id: "", label: "Home", icon: Home, showMobile: true },
+    { id: "routes-timing", label: "Routes", icon: Map, showMobile: true },
+    { id: "immediate-tasks", label: "Tasks", icon: Task, showMobile: true },
+    { id: "statistics", label: "Stats", icon: Stats, showMobile: true },
+    { id: "settings", label: "Settings", icon: Settings, showMobile: true },
 ],
 SuperVisor: [
-    { id: "", label: "Home", icon: Home },
-    { id: "search-workers", label: "Search", icon: Search },
-    { id: "attendance", label: "Attendance", icon: People },
-    { id: "immediate-tasks", label: "Tasks", icon: Task },
-    { id: "settings", label: "Settings", icon: Settings },
+    { id: "", label: "Home", icon: Home, showMobile: true },
+    { id: "search-workers", label: "Search", icon: Search, showMobile: true },
+    { id: "attendance", label: "Attendance", icon: People, showMobile: true },
+    { id: "immediate-tasks", label: "Tasks", icon: Task, showMobile: true },
+    { id: "settings", label: "Settings", icon: Settings, showMobile: true },
 ],
 MHO: [
-    { id: "", label: "Home", icon: Home },
-    { id: "immediate-tasks", label: "Tasks", icon: Task },
-    { id: "statistics", label: "Stats", icon: Stats },
-    { id: "zones", label: "Zones", icon: Map },
-    { id: "settings", label: "Settings", icon: Settings },
+    { id: "", label: "Home", icon: Home, showMobile: true },
+    { id: "immediate-tasks", label: "Tasks", icon: Task, showMobile: true },
+    { id: "statistics", label: "Stats", icon: Stats, showMobile: true },
+    { id: "zones", label: "Zones", icon: Map, showMobile: true },
+    { id: "settings", label: "Settings", icon: Settings, showMobile: true },
 ]
 };
 
@@ -144,7 +149,7 @@ return (
             onClick={function() { handleNavigation(item.id); }}
             className={`w-full flex items-center gap-4 px-4 py-3 my-4 rounded-lg transition-all duration-300 group ${
                 active 
-                ? "bg-primaryLight text-white shadow-lg shadow-primary/20 scale-[1.02]" 
+                ? "bg-primaryLight text-white shadow-lg shadow-primary/20 scale-[0.99]" 
                 : "hover:bg-[#316F5D] hover:cursor-pointer active:scale-95"
             }`}
             >
@@ -238,7 +243,6 @@ return (
         isActive={isActive} 
     />
     </div>
-
 </div>
 );
 }
