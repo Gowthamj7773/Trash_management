@@ -21,7 +21,9 @@ import { ImEarth } from "react-icons/im"; // near language swithing
 import { MdBrightnessMedium } from "react-icons/md"; // dark/light
 import { GrCertificate } from "react-icons/gr"; //certificate
 import { IoSearch } from "react-icons/io5";
-
+import { IoIosQrScanner } from "react-icons/io";
+import { IoCloseSharp } from "react-icons/io5"; // X
+import { RiExpandDiagonalLine } from "react-icons/ri" // for expanding screen
 // arrows
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
@@ -154,3 +156,15 @@ export function UpArrow({ size, isPressed = false, isDarkTheme = false, defaultC
 export function DownArrow({ size, isPressed = false, isDarkTheme = false, defaultColor = "black", DarkThemeColor = "#fff", OnpressColor = "#1E8E54" }) {
     return <Icons Icon={FaChevronDown} size={size} isPressed={isPressed} isDarkTheme={isDarkTheme} defaultColor={defaultColor} DarkThemeColor={DarkThemeColor} OnpressColor={OnpressColor} />;
 }
+
+export function QRScanner({ size, isPressed = false, isDarkTheme = false, defaultColor = "black", DarkThemeColor = "#fff", OnpressColor = "#1E8E54" }) {
+    return <Icons Icon={IoIosQrScanner} size={size} isPressed={isPressed} isDarkTheme={isDarkTheme} defaultColor={defaultColor} DarkThemeColor={DarkThemeColor} OnpressColor={OnpressColor} />;
+}
+export function X({ size, isPressed = false, isDarkTheme = false, defaultColor = "black", DarkThemeColor = "#fff", OnpressColor = "#1E8E54" }) {
+    return <Icons Icon={IoCloseSharp} size={size} isPressed={isPressed} isDarkTheme={isDarkTheme} defaultColor={defaultColor} DarkThemeColor={DarkThemeColor} OnpressColor={OnpressColor} />;
+}
+
+export function Expand({ size, isPressed = false, isDarkTheme = false, defaultColor = "black", DarkThemeColor = "#fff", OnpressColor = "#1E8E54" }) {
+    return <Icons Icon={RiExpandDiagonalLine} size={size} isPressed={isPressed} isDarkTheme={isDarkTheme} defaultColor={defaultColor} DarkThemeColor={DarkThemeColor} OnpressColor={OnpressColor} />;
+}
+

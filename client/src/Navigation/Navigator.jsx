@@ -5,8 +5,9 @@ import Login from "../pages/Login/Login";
 
 //residents
 import Home from "../pages/Residents/Home";
-
+import Map from "../pages/Residents/Map";
 import ReportTrash from "../pages/Residents/ReportTrash";
+import Feedback from "../pages/Residents/Feedback";
 
 // Mock User - Change role to test: "Resident", "TrashMan", "SuperVisor", "SanittaryInspector", "MHO"
 const mockUser = { role: "Resident", name: "Alex Rivera" };
@@ -28,11 +29,11 @@ return (
         {mockUser?.role === "Resident" && (
             <>
             <Route index element={<Home/>} />
-            <Route path="map" element={<div>Map View Content</div>} />
+            <Route path="map" element={<Map/>} />
             <Route path="report-trash" element={<ReportTrash/>} />
             <Route path="statistics" element={<div>Resident Statistics</div>} />
             <Route path="quiz" element={<div>Pollution Quiz Content</div>} />
-            <Route path="feedback" element={<div>Feedback Form</div>} />
+            <Route path="feedback" element={<Feedback/>} />
             <Route path="settings" element={<div>User Settings</div>} />
             </>
         )}

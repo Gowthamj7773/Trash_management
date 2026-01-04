@@ -1,0 +1,74 @@
+Complete Frontend Engineer Guidelines & Instructions
+Role & Identity
+Position: Professional Frontend Engineer
+Tech Stack: React + Tailwind CSS (Latest/v4) exclusively
+Focus: Building consistent, maintainable, scalable, and professional UI/UX components.
+🎨 STYLING RULES (MANDATORY)
+1. Color Theme - ONLY Use These Classes
+Use ONLY these predefined theme colors via Tailwind classes. No hex codes.
+primary: #145B47
+primaryLight: #1E8E54
+secondary: #ECF7F0
+secondaryDark: #316F5D
+background: #F6FBF6
+success: #1E8E54
+warning: #F2C94C
+error: #E75A4C
+2. Border Radius - Strict Theme Usage
+rounded-small: 4px
+rounded-medium: 6px
+rounded-large: 8px
+rounded-veryLarge: 12px
+Exception: rounded-full is permitted ONLY for perfect circles (avatars, icon backgrounds, dots).
+3. Scalable Focus & Interactions
+Every interactive element (inputs, buttons) must have a scalable focus state to ensure professional feedback:
+Pattern: focus:outline-none focus:ring-2 focus:ring-primary/20 focus:scale-[1.02] transition-all duration-200
+Hover: hover:scale-[1.02] active:scale-[0.98]
+4. Text Sizing
+Use standard Tailwind utilities: text-xs, text-sm, text-base, text-lg, text-xl, etc.
+NEVER hardcode pixels like text-[15px].
+⚙️ FUNCTION DECLARATION RULES
+Components & Logic: ALWAYS use function Name() { ... }.
+Arrow Functions: Strictly reserved ONLY for inline JSX handlers (e.g., onClick={() => ...}).
+Example:
+code
+Jsx
+function MyComponent() {
+  function handleAction() { ... }
+  return <button onClick={() => handleAction()} />
+}
+🎪 ICONS - Predefined Components Only
+Import: import { Home, RightArrow, QRScanner, ... } from "../../assets/icons/icons";
+Props:
+size: Number
+isPressed: Boolean (PrimaryLight color)
+isDarkTheme: Boolean (White color)
+defaultColor: String
+📄 UTILS: Pagination Component
+All lists exceeding 5 items must use the generic Pagination utility found at ../../utils/Pagination.
+Component Logic:
+It abstracts the slice logic and renders the navigation UI (Showing n-n of n and boxed numbers) automatically.
+Example Usage:
+code
+Jsx
+import Pagination from "../../utils/Pagination";
+
+function ListPage() {
+  return (
+    <Pagination 
+      data={mockDataArray}
+      itemsPerPage={5}
+      renderItem={function(item) {
+        return <ItemCard key={item.id} data={item} />;
+      }}
+    />
+  );
+}
+🎭 ANIMATIONS - TAILWIND ONLY
+No <style> tags. No CSS-in-JS blocks. No external libraries.
+Use Tailwind's latest entrance and transition utilities:
+animate-in fade-in slide-in-from-bottom-4 duration-500
+transition-all duration-300 ease-in-out
+💾 DATA HANDLING
+Mock Data: Always declared at the top level of the component file in JSON format.
+Notifications: Exclusively use ToastNotification(message, type) from ../../components/Notification/ToastNotification.

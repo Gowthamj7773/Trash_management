@@ -54,7 +54,7 @@ return (
             defaultColor={active ? "#1E8E54" : "#145B47"} 
             />
         </div>
-        <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 ${active ? "text-primaryLight" : "text-gray-400"}`}>
+        <span className={`text-[10px] font-bold  tracking-widest transition-colors duration-300 ${active ? "text-primaryLight" : "text-gray-400"}`}>
             {item.label}
         </span>
         {active && (
@@ -78,7 +78,7 @@ const menuConfig = {
 Resident: [
     { id: "", label: "Home", icon: Home, showMobile: true },
     { id: "map", label: "Map", icon: Map, showMobile: true },
-    { id: "report-trash", label: "Report trash", icon: Camera, showMobile: true },
+    { id: "report-trash", label: "Report", icon: Camera, showMobile: true },
     { id: "statistics", label: "Statistics", icon: Stats, showMobile: true },
     { id: "quiz", label: "Quiz", icon: Certificate, showMobile: true },
     { id: "feedback", label: "Feedback", icon: FeedBack, showMobile: false },
@@ -150,7 +150,7 @@ return (
             className={`w-full flex items-center gap-4 px-4 py-3 my-4 rounded-lg transition-all duration-300 group ${
                 active 
                 ? "bg-primaryLight text-white shadow-lg shadow-primary/20 scale-[0.99]" 
-                : "hover:bg-[#316F5D] hover:cursor-pointer active:scale-95"
+                : "hover:bg-secondaryDark hover:cursor-pointer active:scale-95"
             }`}
             >
             <Icon 
@@ -188,7 +188,7 @@ return (
     <div className="flex-1 flex flex-col h-full overflow-hidden">
     
     {/* TOP HEADER */}
-    <header className="h-20 bg-white border-b border-secondary px-4 md:px-8 flex items-center justify-between z-10 shadow-sm shrink-0">
+    <header className="h-20  bg-white border-b border-secondary px-4 md:px-8 flex items-center justify-between z-10 shadow-sm shrink-0">
         <div className="flex items-center gap-2 md:gap-4">
         <h2 className="text-lg md:text-xl font-bold text-primary tracking-tight truncate">
             {getPageTitle()}
