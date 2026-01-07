@@ -40,7 +40,7 @@ function Home() {
             {/* Header Card */}
             <header className="bg-primary p-5 rounded-veryLarge flex items-center justify-between text-white shadow-sm transition-all duration-200 hover:scale-[0.99]">
                 <div>
-                <h1 className="text-lg md:text-xl font-bold tracking-tight">Good morning, Alex</h1>
+                <h1 className="text-base md:text-lg font-bold tracking-tight">Good morning, Alex</h1>
                 <p className="text-xs opacity-80 mt-1 font-medium">Your vigilance keeps the neighborhood clean and healthy.</p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -61,7 +61,7 @@ function Home() {
                 className="bg-white w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
                 alt="map"
                 />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 rounded-small border border-secondary text-xs font-bold text-primary uppercase tracking-tight">
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 rounded-medium border border-secondary text-xs font-bold text-primary uppercase tracking-tight">
                 San Francisco District
                 </div>
             </div>
@@ -74,7 +74,7 @@ function Home() {
                 {/* Report Trash Action */}
                 <button 
                     onClick={() => navigate("report-trash")} 
-                    className="hover:bg-primary hover:text-white bg-white shrink-0 w-40 h-36 rounded-veryLarge p-4 flex flex-col justify-center items-center text-left snap-start transition-all duration-200 hover:scale-[0.99] active:scale-[0.99] shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20"
+                    className="hover:bg-primary hover:text-white bg-white shrink-0 w-40 h-36 rounded-large p-4 flex flex-col justify-center items-center text-left snap-start transition-all duration-200 hover:scale-[0.99] active:scale-[0.99] shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20"
                 >
                     <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-3">
                     <Camera size={22} isPressed={false} defaultColor="#145B47" />
@@ -88,7 +88,7 @@ function Home() {
                 {/* Scan QR Action */}
                 <button 
                     onClick={() => navigate("feedback")} 
-                    className="hover:bg-primary hover:text-white bg-white shrink-0 w-40 h-36 rounded-veryLarge p-4 flex flex-col justify-center items-center text-left snap-start transition-all duration-200 hover:scale-[0.99] active:scale-[0.99] shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20"
+                    className="hover:bg-primary hover:text-white bg-white shrink-0 w-40 h-36 rounded-large p-4 flex flex-col justify-center items-center text-left snap-start transition-all duration-200 hover:scale-[0.99] active:scale-[0.99] shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20"
                 >
                     <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-3">
                     <QR size={22} isPressed={false} defaultColor="#145B47" />
@@ -102,7 +102,7 @@ function Home() {
                 {/* Quiz Action */}
                 <button 
                     onClick={() => navigate("quiz")} 
-                    className="hover:bg-primary hover:text-white bg-white shrink-0 w-40 h-36 rounded-veryLarge p-4 flex flex-col justify-center items-center text-left snap-start transition-all duration-200 hover:scale-[0.99] active:scale-[0.99] shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20"
+                    className="hover:bg-primary hover:text-white bg-white shrink-0 w-40 h-36 rounded-large p-4 flex flex-col justify-center items-center text-left snap-start transition-all duration-200 hover:scale-[0.99] active:scale-[0.99] shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20"
                 >
                     <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-3">
                     <Certificate size={22} isPressed={false} defaultColor="#145B47" />
@@ -116,7 +116,7 @@ function Home() {
             </div>
 
             {/* Reports Section */}
-            <section className="bg-white border border-secondary rounded-veryLarge p-5 shadow-sm">
+            <section className="bg-white border border-secondary rounded-large p-5 shadow-sm">
                 <h2 className="text-sm font-bold text-black uppercase tracking-widest mb-4">Recent Reports</h2>
                 <Pagination 
                 data={mockReports}
@@ -133,7 +133,7 @@ function Home() {
             <div className="sticky top-6 space-y-5">
                 
                 {/* Quick Actions Card */}
-                <div className="bg-white border border-secondary rounded-veryLarge p-5 shadow-sm">
+                <div className="bg-white border border-secondary rounded-large p-5 shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
                     <div className="w-1.5 h-4 bg-primary rounded-full" />
                     <h2 className="text-xs font-bold text-black uppercase tracking-widest">Quick actions</h2>
@@ -182,7 +182,7 @@ function Home() {
                 </div>
 
                 {/* Daily Eco Tip Card */}
-                <div className="bg-white border border-secondary border-l-4 border-l-primary rounded-veryLarge p-5 shadow-sm group hover:bg-secondary/40 transition-all duration-300">
+                <div className="bg-white border border-secondary border-l-4 border-l-primary rounded-large p-5 shadow-sm group hover:bg-secondary/40 transition-all duration-300">
                 <div className="flex items-center gap-2 mb-3">
                     <div className="p-1.5 bg-primary/10 rounded-large text-primary transition-transform group-hover:rotate-12">
                     <Add size={18} isPressed={false} isDarkTheme={false} />
@@ -195,7 +195,7 @@ function Home() {
                 </div>
 
                 {/* Support Action */}
-                <button className="w-full py-3.5 bg-secondary border border-primary/10 rounded-veryLarge text-xs font-bold text-primary uppercase tracking-widest hover:bg-primary hover:text-white hover:scale-[0.99] active:scale-[0.99] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20 shadow-sm">
+                <button className="w-full py-3.5 bg-secondary border border-primary/10 rounded-large text-xs font-bold text-primary uppercase tracking-widest hover:bg-primary hover:text-white hover:scale-[0.99] active:scale-[0.99] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20 shadow-sm">
                 Need Help? Contact Support
                 </button>
             </div>

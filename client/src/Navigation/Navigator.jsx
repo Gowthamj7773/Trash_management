@@ -10,6 +10,7 @@ import Map from "../pages/Residents/Map";
 import ReportTrash from "../pages/Residents/ReportTrash";
 import Feedback from "../pages/Residents/Feedback";
 import Settings from "../pages/Residents/Settings";
+import ResidentStats from "../pages/Residents/ResidentStats";
 
 // testing
 import ThemeStore from "../store/ThemeStore";
@@ -43,7 +44,7 @@ return (
             <Route index element={<Home/>} />
             <Route path="map" element={<Map/>} />
             <Route path="report-trash" element={<ReportTrash/>} />
-            <Route path="statistics" element={<div>{isDarkTheme ? "dark": "light"}</div>} /> {/* checking zustand */}
+            <Route path="statistics" element={<ResidentStats/>} /> {/* checking zustand */}
             <Route path="quiz" element={<Quiz/>} />
             <Route path="take-quiz" element={<TakeQuiz/>} />
             <Route path="feedback" element={<Feedback/>} />

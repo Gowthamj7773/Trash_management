@@ -107,7 +107,7 @@ function Map() {
     <div className={isDarkTheme ? "dark" : ""}>
     <div className="w-full h-[calc(100vh-168px)] md:h-[calc(100vh-112px)] bg-background relative overflow-hidden">
       {/* Info Banner */}
-      <div className="bg-primary text-white mb-3 md:mb-4 px-3 md:px-4 py-2.5 md:py-3 rounded-small md:rounded-medium shadow-lg flex items-start animate-in fade-in slide-in-from-top-2 duration-500">
+      <div className="bg-primary text-white mb-3 md:mb-4 px-3 md:px-4 py-2.5 md:py-3 rounded-medium shadow-lg flex items-start animate-in fade-in slide-in-from-top-2 duration-500">
         <div className="w-4 h-4 md:w-5 md:h-5 rounded-full border-2 border-white flex items-center justify-center mr-2 mt-0.5">
           <span className="text-[10px] md:text-xs font-bold">i</span>
         </div>
@@ -117,7 +117,7 @@ function Map() {
       </div>
 
       {/* Map Container with Buttons Overlay */}
-      <div className="relative w-full h-[calc(100%-90px)] md:h-[calc(100%-72px)] rounded-small overflow-hidden shadow-md">
+      <div className="relative w-full h-[calc(100%-90px)] md:h-[calc(100%-72px)] rounded-medium overflow-hidden shadow-md">
         {/* Map Image */}
         <img
           src="https://tile.openstreetmap.org/14/4824/6156.png"
@@ -130,7 +130,7 @@ function Map() {
           {/* View Complaints Button - Bottom Left */}
           <button
             onClick={() => handleViewComplaints()}
-            className={`${isDarkTheme ? "bg-primary text-white" : "bg-white text-primary"} pointer-events-auto absolute bottom-4 left-4 md:bottom-6 md:left-6  px-4 py-2.5 md:px-4 md:py-3 rounded-medium shadow-lg font-semibold text-xs md:text-sm hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20`}
+            className={`${isDarkTheme ? "bg-primary text-white" : "bg-white text-primary"} pointer-events-auto absolute bottom-4 left-4 md:bottom-6 md:left-6 px-4 py-2.5 md:px-4 md:py-3 rounded-large shadow-lg font-semibold text-xs md:text-sm hover:scale-[0.99] active:scale-[0.99] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20`}
           >
             <span className="flex items-center gap-2">
               <span className="hidden sm:inline">View Complaints</span>
@@ -147,18 +147,18 @@ function Map() {
           {showPreviewCard && selectedComplaint && (
             <div 
               onClick={handleExpandPreview}
-              className={`${isDarkTheme ? "bg-primary text-white": "bg-white text-primary"} pointer-events-auto absolute bottom-4 right-4 md:bottom-6 md:right-6 rounded-medium shadow-xl p-2.5 md:p-3 flex items-center gap-2 md:gap-3 cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 animate-in slide-in-from-right-4 fade-in w-[calc(100vw-120px)] max-w-44 md:max-w-[320px]`}
+              className={`${isDarkTheme ? "bg-primary text-white": "bg-white text-primary"} pointer-events-auto absolute bottom-4 right-4 md:bottom-6 md:right-6 rounded-large shadow-xl p-2.5 md:p-3 flex items-center gap-2 md:gap-3 cursor-pointer hover:scale-[0.99] active:scale-[0.99] transition-all duration-200 animate-in slide-in-from-right-4 fade-in w-[calc(100vw-120px)] max-w-44 md:max-w-[320px]`}
             >
               <img
                 src={selectedComplaint.image}
                 alt={selectedComplaint.type}
-                className="w-12 h-12 md:w-16 md:h-16 rounded-small object-cover"
+                className="w-12 h-12 md:w-16 md:h-16 rounded-medium object-cover"
               />
               <div className="flex-1 min-w-0">
-                <h4 className="text-xs md:text-sm font-semibold  truncate">{selectedComplaint.type}</h4>
-                <p className="text-[10px] md:text-xs  truncate">{selectedComplaint.reportedTime}</p>
+                <h4 className="text-xs md:text-sm font-semibold truncate">{selectedComplaint.type}</h4>
+                <p className="text-[10px] md:text-xs truncate">{selectedComplaint.reportedTime}</p>
               </div>
-              <div className="p-1.5 md:p-2 bg-secondary rounded-small">
+              <div className="p-1.5 md:p-2 bg-secondary rounded-medium">
                 <Expand size={14} defaultColor={`${isDarkTheme? "white":"#145B47"}`}/>
               </div>
             </div>
