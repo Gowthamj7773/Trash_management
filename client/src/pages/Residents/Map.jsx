@@ -4,6 +4,7 @@ import ToastNotification from '../../components/Notification/ToastNotification';
 import AllComplaints from '../../components/Modals/Residents/complaints/AllComplaints';
 import SelectedComplaint from '../../components/Modals/Residents/complaints/SelectedComplaint';
 import { Expand } from '../../assets/icons/icons';
+import ThemeStore from '../../store/ThemeStore';
 
 const mockComplaints = [
   {
@@ -79,6 +80,7 @@ function Map() {
   const [showSelectedComplaint, setShowSelectedComplaint] = useState(false);
   const [showPreviewCard, setShowPreviewCard] = useState(false);
   const [selectedComplaint, setSelectedComplaint] = useState(null);
+  const { isDarkTheme } = ThemeStore();
 
   function handleViewComplaints() {
     setShowAllComplaints(true);
@@ -102,6 +104,7 @@ function Map() {
   }
 
   return (
+    <div className={isDarkTheme ? "dark" : ""}>
     <div className="w-full h-[calc(100vh-168px)] md:h-[calc(100vh-112px)] bg-background relative overflow-hidden">
       {/* Info Banner */}
       <div className="bg-primary text-white mb-3 md:mb-4 px-3 md:px-4 py-2.5 md:py-3 rounded-small md:rounded-medium shadow-lg flex items-start animate-in fade-in slide-in-from-top-2 duration-500">
@@ -127,13 +130,13 @@ function Map() {
           {/* View Complaints Button - Bottom Left */}
           <button
             onClick={() => handleViewComplaints()}
-            className="pointer-events-auto absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white text-primary px-4 py-2.5 md:px-6 md:py-3 rounded-medium shadow-lg font-semibold text-xs md:text-sm hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className={`${isDarkTheme ? "bg-primary text-white" : "bg-white text-primary"} pointer-events-auto absolute bottom-4 left-4 md:bottom-6 md:left-6  px-4 py-2.5 md:px-4 md:py-3 rounded-medium shadow-lg font-semibold text-xs md:text-sm hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20`}
           >
             <span className="flex items-center gap-2">
               <span className="hidden sm:inline">View Complaints</span>
               <span className="sm:hidden">Complaints</span>
               {mockComplaints.length > 0 && (
-                <span className="w-5 h-5 md:w-6 md:h-6 bg-error text-white text-[10px] md:text-xs font-bold rounded-full flex items-center justify-center shadow-md">
+                <span className="w-5 h-5 md:w-6 md:h-6 z-10 absolute -top-2 -right-2 bg-error text-white text-[10px] md:text-xs font-bold rounded-full flex items-center justify-center shadow-md">
                   {mockComplaints.length}
                 </span>
               )}
@@ -144,7 +147,7 @@ function Map() {
           {showPreviewCard && selectedComplaint && (
             <div 
               onClick={handleExpandPreview}
-              className="pointer-events-auto absolute bottom-4 right-4 md:bottom-6 md:right-6 bg-white rounded-medium shadow-xl p-2.5 md:p-3 flex items-center gap-2 md:gap-3 cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 animate-in slide-in-from-right-4 fade-in w-[calc(100vw-120px)] max-w-44 md:max-w-[320px]"
+              className={`${isDarkTheme ? "bg-primary text-white": "bg-white text-primary"} pointer-events-auto absolute bottom-4 right-4 md:bottom-6 md:right-6 rounded-medium shadow-xl p-2.5 md:p-3 flex items-center gap-2 md:gap-3 cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 animate-in slide-in-from-right-4 fade-in w-[calc(100vw-120px)] max-w-44 md:max-w-[320px]`}
             >
               <img
                 src={selectedComplaint.image}
@@ -152,11 +155,11 @@ function Map() {
                 className="w-12 h-12 md:w-16 md:h-16 rounded-small object-cover"
               />
               <div className="flex-1 min-w-0">
-                <h4 className="text-xs md:text-sm font-semibold text-primary truncate">{selectedComplaint.type}</h4>
-                <p className="text-[10px] md:text-xs text-primary/60 truncate">{selectedComplaint.reportedTime}</p>
+                <h4 className="text-xs md:text-sm font-semibold  truncate">{selectedComplaint.type}</h4>
+                <p className="text-[10px] md:text-xs  truncate">{selectedComplaint.reportedTime}</p>
               </div>
               <div className="p-1.5 md:p-2 bg-secondary rounded-small">
-                <Expand size={14} defaultColor="#145B47"/>
+                <Expand size={14} defaultColor={`${isDarkTheme? "white":"#145B47"}`}/>
               </div>
             </div>
           )}
@@ -178,6 +181,7 @@ function Map() {
       />
       
       <ToastContainer />
+    </div>
     </div>
   );
 }

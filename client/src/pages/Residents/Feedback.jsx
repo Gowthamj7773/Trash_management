@@ -9,6 +9,7 @@ import {
 import ToastNotification from "../../components/Notification/ToastNotification";
 import { ToastContainer } from "react-toastify";
 import FeedBackModal from "../../components/Modals/Residents/FeedbackModal";
+import ThemeStore from "../../store/ThemeStore";
 
 // Mock Collector Data declared at component top level
 const mockTrashMan = {
@@ -22,6 +23,7 @@ function Feedback() {
   const [verifyMethod, setVerifyMethod] = useState("QR"); // QR or OTP
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [showModal, setShowModal] = useState(false);
+  const { isDarkTheme } = ThemeStore();
   
   const otpRefs = [useRef(), useRef(), useRef(), useRef()];
   const cameraInputRef = useRef(null);
@@ -75,6 +77,7 @@ function Feedback() {
   }
 
   return (
+    <div className={isDarkTheme ? "dark" : ""}>
     <div className="min-h-screen bg-background p-4 md:p-6 animate-in fade-in duration-500">
       <div className="max-w-xl mx-auto">
         
@@ -178,6 +181,7 @@ function Feedback() {
         />
       )}
       <ToastContainer position="bottom-center" />
+    </div>
     </div>
   );
 }

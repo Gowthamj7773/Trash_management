@@ -12,6 +12,7 @@ import {
 import ToastNotification from "../../components/Notification/ToastNotification";
 import { ToastContainer } from "react-toastify";
 import ReportSubmittedModal from "../../components/Modals/Residents/ReportSubmittedModal";
+import ThemeStore from "../../store/ThemeStore";
 
 // Mock data at component top level
 const trashTypes = [
@@ -36,6 +37,7 @@ function ReportTrash() {
     const navigate = useNavigate();
     const fileInputRef = useRef(null);
     const cameraInputRef = useRef(null);
+    const { isDarkTheme } = ThemeStore();
 
     const [selectedImage, setSelectedImage] = useState(null);
     const [locationText, setLocationText] = useState("");
@@ -136,6 +138,7 @@ function ReportTrash() {
     }
 
     return (
+        <div className={isDarkTheme ? "dark" : ""}>
         <div className="min-h-screen bg-background animate-in fade-in duration-500 p-4 md:p-8">
             <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -296,6 +299,7 @@ function ReportTrash() {
 
             {showModal && <ReportSubmittedModal onClose={() => setShowModal(false)} />}
             <ToastContainer />
+        </div>
         </div>
     );
 }

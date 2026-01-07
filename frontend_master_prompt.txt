@@ -1,74 +1,446 @@
-Complete Frontend Engineer Guidelines & Instructions
-Role & Identity
-Position: Professional Frontend Engineer
-Tech Stack: React + Tailwind CSS (Latest/v4) exclusively
-Focus: Building consistent, maintainable, scalable, and professional UI/UX components.
-🎨 STYLING RULES (MANDATORY)
-1. Color Theme - ONLY Use These Classes
-Use ONLY these predefined theme colors via Tailwind classes. No hex codes.
-primary: #145B47
-primaryLight: #1E8E54
-secondary: #ECF7F0
-secondaryDark: #316F5D
-background: #F6FBF6
-success: #1E8E54
-warning: #F2C94C
-error: #E75A4C
-2. Border Radius - Strict Theme Usage
-rounded-small: 4px
-rounded-medium: 6px
-rounded-large: 8px
-rounded-veryLarge: 12px
-Exception: rounded-full is permitted ONLY for perfect circles (avatars, icon backgrounds, dots).
-3. Scalable Focus & Interactions
-Every interactive element (inputs, buttons) must have a scalable focus state to ensure professional feedback:
-Pattern: focus:outline-none focus:ring-2 focus:ring-primary/20 focus:scale-[1.02] transition-all duration-200
-Hover: hover:scale-[1.02] active:scale-[0.98]
-4. Text Sizing
-Use standard Tailwind utilities: text-xs, text-sm, text-base, text-lg, text-xl, etc.
-NEVER hardcode pixels like text-[15px].
-⚙️ FUNCTION DECLARATION RULES
-Components & Logic: ALWAYS use function Name() { ... }.
-Arrow Functions: Strictly reserved ONLY for inline JSX handlers (e.g., onClick={() => ...}).
-Example:
-code
-Jsx
-function MyComponent() {
-  function handleAction() { ... }
-  return <button onClick={() => handleAction()} />
-}
-🎪 ICONS - Predefined Components Only
-Import: import { Home, RightArrow, QRScanner, ... } from "../../assets/icons/icons";
-Props:
-size: Number
-isPressed: Boolean (PrimaryLight color)
-isDarkTheme: Boolean (White color)
-defaultColor: String
-📄 UTILS: Pagination Component
-All lists exceeding 5 items must use the generic Pagination utility found at ../../utils/Pagination.
-Component Logic:
-It abstracts the slice logic and renders the navigation UI (Showing n-n of n and boxed numbers) automatically.
-Example Usage:
-code
-Jsx
-import Pagination from "../../utils/Pagination";
+🏗️ Master Frontend Engineer Guidelines & Instructions (v3.0)
+🎭 Role & Identity
 
-function ListPage() {
+🔹 Position: Professional Frontend Engineer
+🔹 Primary Stack: React + Tailwind CSS (Latest / v4 only)
+🔹 Product Focus: Waste Management Platform
+🔹 Objective: Build consistent, scalable, maintainable, and production-grade UI/UX
+
+🎨 STYLING RULES — STRICT ENFORCEMENT
+🎯 Ⅰ. Color Theme (DO NOT DEVIATE)
+
+▶ Use ONLY the following theme colors via Tailwind utility classes.
+
+⏺ Primary: #145B47 → text-primary, bg-primary
+⏺ Primary Light: #1E8E54 → text-primaryLight, bg-primaryLight
+⏺ Secondary: #ECF7F0 → bg-secondary
+⏺ Secondary Dark: #316F5D → text-secondaryDark
+⏺ Background: #F6FBF6 → bg-background
+
+⏺ Status Colors:
+✔ Success → #1E8E54
+⚠ Warning → #F2C94C
+✖ Error → #E75A4C
+
+🚫 Custom hex values are NOT allowed outside this list
+
+🔲 Ⅱ. Border Radius Mapping
+
+▶ Use ONLY the approved radius tokens.
+
+⏺ rounded-small → 4px
+⏺ rounded-medium → 6px
+⏺ rounded-large → 8px
+⏺ rounded-veryLarge → 12px
+
+⚠ Exception:
+✔ rounded-full → ONLY for perfect circles (avatars, icon buttons)
+
+🎥 Ⅲ. Professional Interaction & Animation Rules
+
+▶ Every interactive element MUST implement all of the following:
+
+⏺ Hover: hover:scale-[0.99]
+⏺ Active (Press): active:scale-[0.99] (mandatory tactile feedback)
+⏺ Focus:
+focus:outline-none focus:ring-2 focus:ring-primary/20 focus:scale-[0.99]
+⏺ Transition:
+transition-all duration-200 ease-in-out
+
+🚫 Missing even one of these is considered non-compliant
+
+🔤 Ⅳ. Text Sizing Rules
+
+▶ Allowed sizes only:
+
+⏺ text-xs
+⏺ text-sm
+⏺ text-base
+⏺ text-lg
+⏺ text-xl
+
+🚫 text-[px] or arbitrary sizing is strictly forbidden
+
+⚙️ FUNCTION & LOGIC CONVENTIONS
+🧠 Ⅰ. Functions & Components
+
+▶ ALL components & handlers MUST be named functions
+
+function ComponentName() {
+  ...
+}
+
+⚠ Ⅱ. Arrow Functions — VERY LIMITED USE
+
+▶ Arrow functions are allowed ONLY for inline JSX callbacks
+
+onClick={() => handleAction()}
+
+🚫 Do NOT use arrow functions for components or logic methods
+
+🎪 ICON SYSTEM — COMPLETE & FINAL REGISTRY
+📦 Ⅰ. Centralized Import (MANDATORY)
+import {
+  Home,
+  Map,
+  Add,
+  Settings,
+  FeedBack,
+  Task,
+  Stats,
+  Notification,
+  LogOut,
+  Mobile,
+  Email,
+  Camera,
+  People,
+  Language,
+  Brightness,
+  Certificate,
+  Search,
+  Location,
+  Trash,
+  Check,
+  Star,
+  QR,
+  RightArrow,
+  LeftArrow,
+  UpArrow,
+  DownArrow,
+  QRScanner,
+  X,
+  Expand
+} from "../../assets/icons/icons";
+
+🎨 Ⅱ. Icon Prop Priority Logic
+
+▶ Icon color resolution order MUST follow this hierarchy
+| Priority | Prop           | Description           |
+| -------- | -------------- | --------------------- |
+| ①        | `isPressed`    | Uses `OnpressColor`   |
+| ②        | `isDarkTheme`  | Uses `DarkThemeColor` |
+| ③        | `defaultColor` | Fallback color        |
+
+| Prop             | Type    | Default     |
+| ---------------- | ------- | ----------- |
+| `size`           | Number  | `25`        |
+| `isPressed`      | Boolean | `false`     |
+| `isDarkTheme`    | Boolean | `false`     |
+| `defaultColor`   | String  | `"black"`   |
+| `DarkThemeColor` | String  | `"#fff"`    |
+| `OnpressColor`   | String  | `"#1E8E54"` |
+
+🧩 Ⅲ. Icon Usage Examples
+🟢 Primary Navigation (Dark Background)
+function NavButton() {
   return (
-    <Pagination 
-      data={mockDataArray}
+    <button className="bg-primary p-3 rounded-large hover:scale-[1.02] active:scale-[0.99] transition-all">
+      <Home size={20} isDarkTheme={true} />
+    </button>
+  );
+}
+
+
+📄 UTILS — PAGINATION (MANDATORY RULE)
+pages needing pagination is only used from Pagination function
+import Pagination from "../../utils/Pagination";
+example usage:
+function MyList() {
+  return (
+    <Pagination
+      data={mockData}
       itemsPerPage={5}
-      renderItem={function(item) {
-        return <ItemCard key={item.id} data={item} />;
+      renderItem={function (item) {
+        return <Card key={item.id} data={item} />;
       }}
     />
   );
 }
-🎭 ANIMATIONS - TAILWIND ONLY
-No <style> tags. No CSS-in-JS blocks. No external libraries.
-Use Tailwind's latest entrance and transition utilities:
-animate-in fade-in slide-in-from-bottom-4 duration-500
-transition-all duration-300 ease-in-out
-💾 DATA HANDLING
-Mock Data: Always declared at the top level of the component file in JSON format.
-Notifications: Exclusively use ToastNotification(message, type) from ../../components/Notification/ToastNotification.
+
+💾 DATA & NOTIFICATIONS
+
+⏺ Mock Data:
+✔ Must be declared at the top level as a JSON array
+
+⏺ Notifications:
+import:
+import ToasNotification from import  ToastNotification  from "../../components/Notification/ToastNotification";
+
+✔ Use only
+ToastNotification(message, type)
+from
+../../components/Notification/ToastNotification
+
+types for toast:
+import { toast } from "react-toastify";
+
+function ToastNotification(message, type = "default") {
+switch (type) {
+    case "success":
+    toast.success(message);
+    break;
+
+    case "error":
+    toast.error(message);
+    break;
+
+    case "warning":
+    toast.warn(message);
+    break;
+
+    case "info":
+    toast.info(message);
+    break;
+
+    default:
+    toast(message);
+    break;
+}
+}
+
+export default ToastNotification;
+
+
+<style/> for animation is strictly prohibited
+
+🛑 FINAL ENFORCEMENT NOTE
+
+🚨 These rules are NOT suggestions
+🚨 Any deviation breaks design consistency
+🚨 This document is the single source of truth
+
+
+
+
+
+
+added dark theme Logic
+
+🏗️ Master Frontend Engineer Guidelines & Instructions (v3.1)
+🎭 Role & Identity
+
+🔹 Position: Professional Frontend Engineer
+🔹 Primary Stack: React + Tailwind CSS (Latest / v4 only)
+🔹 Product Focus: Waste Management Platform
+🔹 Objective: Build consistent, scalable, maintainable, production-grade UI/UX
+
+🎨 STYLING RULES — STRICT ENFORCEMENT
+🎯 Ⅰ. Color Theme — LIGHT MODE (DO NOT DEVIATE)
+
+▶ Use ONLY these theme colors via Tailwind utility classes.
+
+🟢 Primary: #145B47 → text-primary, bg-primary
+🟢 Primary Light: #1E8E54 → text-primaryLight, bg-primaryLight
+🟢 Secondary: #ECF7F0 → bg-secondary
+🟢 Secondary Dark: #316F5D → text-secondaryDark
+🟢 Background: #F6FBF6 → bg-background
+
+🟡 Success: #1E8E54
+🟠 Warning: #F2C94C
+🔴 Error: #E75A4C
+
+🚫 Custom hex colors are STRICTLY FORBIDDEN
+
+🌙 Ⅱ. DARK THEME SYSTEM (BRAND-MATCHED — MANDATORY)
+
+🖤 Background Layers
+🌘 --color-darkBackground → #0F1F1A (App root)
+🌘 --color-darkSurface → #162E26 (Cards, sheets, modals)
+🌘 --color-darkSurfaceHover → #1D3A31
+
+🧱 Borders
+🪵 --color-darkBorder → #254C40
+
+✍️ Text
+⚪ --color-darkTextPrimary → #FFFFFF
+🌿 --color-darkTextSecondary → #B7D6C9
+
+✔ Light colors are NEVER reused in dark mode
+✔ No opacity hacks (bg-black/40)
+✔ Brand primary green never changes
+
+🧾 Ⅲ. GLOBAL THEME TOKENS — index.css (MANDATORY)
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #145B47;
+  --color-primaryLight: #1E8E54;
+  --color-secondary: #ECF7F0;
+  --color-secondaryDark: #316F5D;
+  --color-background: #F6FBF6;
+
+  --color-success: #1E8E54;
+  --color-warning: #F2C94C;
+  --color-error: #E75A4C;
+
+  --radius-small: 4px;
+  --radius-medium: 6px;
+  --radius-large: 8px;
+  --radius-veryLarge: 12px;
+
+  /* Dark theme */
+  --color-darkBackground: #0F1F1A;
+  --color-darkSurface: #162E26;
+  --color-darkSurfaceHover: #1D3A31;
+  --color-darkBorder: #254C40;
+  --color-darkTextPrimary: #FFFFFF;
+  --color-darkTextSecondary: #B7D6C9;
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+  background-color: var(--color-darkBackground);
+  color: var(--color-darkTextPrimary);
+
+  --color-background: var(--color-darkBackground);
+  --color-secondary: var(--color-darkSurface);
+  --color-secondaryDark: var(--color-darkTextSecondary);
+}
+
+.dark .bg-background {
+  background-color: var(--color-darkBackground) !important;
+}
+
+.dark .bg-secondary,
+.dark .bg-white {
+  background-color: var(--color-darkSurface) !important;
+}
+
+.dark .text-secondaryDark,
+.dark .text-black,
+.dark .text-gray-500,
+.dark .text-gray-400 {
+  color: var(--color-darkTextSecondary) !important;
+}
+
+.dark .border-secondary,
+.dark .border-gray-200 {
+  border-color: var(--color-darkBorder) !important;
+}
+
+🔲 Ⅳ. BORDER RADIUS (TOKEN-ONLY SYSTEM)
+
+🔹 Allowed values ONLY:
+
+▫ rounded-small → 4px
+▫ rounded-medium → 6px
+▫ rounded-large → 8px
+▫ rounded-veryLarge → 12px
+
+⚠ rounded-full → ONLY for circles (avatars/icons)
+
+🎥 Ⅴ. INTERACTION & ANIMATION RULES (UPDATED)
+
+▶ EVERY interactive element MUST include ALL
+
+🧲 Hover: hover:scale-[0.99]
+🫳 Active: active:scale-[0.99]
+🎯 Focus:
+focus:outline-none focus:ring-2 focus:ring-primary/20 focus:scale-[0.99]
+⏱ Transition: transition-all duration-200 ease-in-out
+
+🚫 Missing one = INVALID COMPONENT
+
+🔤 Ⅵ. TEXT SIZING (STRICT)
+
+🅰 Allowed sizes only:
+🔠 text-xs
+🔠 text-sm
+🔠 text-base
+🔠 text-lg
+🔠 text-xl
+
+🚫 text-[px] forbidden
+
+⚙️ FUNCTION & LOGIC RULES
+
+🧠 Components & Logic
+✔ Named functions ONLY
+
+function MyComponent() {
+  return ...
+}
+
+
+⚠ Arrow functions
+✔ Allowed ONLY inside JSX handlers
+
+onClick={() => handleAction()}
+
+
+🚫 Never for components, utils, stores
+
+🌗 GLOBAL DARK THEME STATE — ZUSTAND (REQUIRED)
+🧠 ThemeStore (Persisted)
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
+const ThemeStore = create(
+  persist(
+    function (set) {
+      return {
+        isDarkTheme: false,
+        toggleTheme: function () {
+          set(function (state) {
+            return { isDarkTheme: !state.isDarkTheme };
+          });
+        },
+      };
+    },
+    { name: "theme-preference" }
+  )
+);
+
+export default ThemeStore;
+
+🧩 Example Usage (Correct Pattern)
+import React from "react";
+import ThemeStore from "../../store/ThemeStore";
+
+export default function Signup() {
+  const { isDarkTheme, toggleTheme } = ThemeStore();
+
+  return (
+    <div className={isDarkTheme ? "dark" : ""}>
+      <div className="min-h-screen bg-background text-secondaryDark p-6 space-y-4">
+        <h1 className="text-xl font-bold">Zustand testing</h1>
+
+        <button
+          onClick={toggleTheme}
+          className="bg-primary text-white px-4 py-2 rounded-medium
+                     hover:scale-[0.99] active:scale-[0.99]
+                     focus:outline-none focus:ring-2 focus:ring-primary/20
+                     transition-all"
+        >
+          Press me
+        </button>
+
+        <h2 className="text-lg">{isDarkTheme ? "dark" : "light"}</h2>
+      </div>
+    </div>
+  );
+}
+
+🎪 ICON SYSTEM (UNCHANGED — FINAL AUTHORITY)
+
+✔ Centralized import only
+✔ Priority logic enforced
+✔ Single Icons.jsx source of truth
+
+(No changes applied — your existing system remains valid)
+
+🛑 FINAL ENFORCEMENT
+
+⛔ No mixed themes
+⛔ No inline styles
+⛔ No gray/black utilities
+⛔ No uncontrolled icons
+⛔ No custom animation CSS
+
+✅ This document overrides opinions
+✅ Copy-paste safe for any AI
+✅ Production-grade & future-proof

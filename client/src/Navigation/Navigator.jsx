@@ -2,23 +2,35 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import SideTab from "../components/SideTab/SideTab";
 import Login from "../pages/Login/Login";
+import Signup from "../pages/Signup/Signup";
 
 //residents
 import Home from "../pages/Residents/Home";
 import Map from "../pages/Residents/Map";
 import ReportTrash from "../pages/Residents/ReportTrash";
 import Feedback from "../pages/Residents/Feedback";
+import Settings from "../pages/Residents/Settings";
+
+// testing
+import ThemeStore from "../store/ThemeStore";
+
+//Quiz
+import Quiz from "../pages/Quiz/Quiz";
+import TakeQuiz from "../pages/Quiz/TakeQuiz";
+
+
 
 // Mock User - Change role to test: "Resident", "TrashMan", "SuperVisor", "SanittaryInspector", "MHO"
 const mockUser = { role: "Resident", name: "Alex Rivera" };
 
 function Navigator() {
+    const {isDarkTheme , toggleTheme} = ThemeStore();
 return (
     <Router>
     <Routes>
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />
-
+        <Route path="/signup" element={<Signup/>} />
         {/* Unauthorized Redirect */}
         {!mockUser?.role && <Route path="*" element={<Navigate to="/login" replace />} />}
 
@@ -31,10 +43,11 @@ return (
             <Route index element={<Home/>} />
             <Route path="map" element={<Map/>} />
             <Route path="report-trash" element={<ReportTrash/>} />
-            <Route path="statistics" element={<div>Resident Statistics</div>} />
-            <Route path="quiz" element={<div>Pollution Quiz Content</div>} />
+            <Route path="statistics" element={<div>{isDarkTheme ? "dark": "light"}</div>} /> {/* checking zustand */}
+            <Route path="quiz" element={<Quiz/>} />
+            <Route path="take-quiz" element={<TakeQuiz/>} />
             <Route path="feedback" element={<Feedback/>} />
-            <Route path="settings" element={<div>User Settings</div>} />
+            <Route path="settings" element={<Settings/>} />
             </>
         )}
 

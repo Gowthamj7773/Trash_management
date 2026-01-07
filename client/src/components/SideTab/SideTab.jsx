@@ -15,6 +15,7 @@ Certificate,
 Notification,
 Search
 } from "../../assets/icons/icons";
+import ThemeStore from "../../store/ThemeStore";
 
 // Mock Data for Profile
 const mockProfile = {
@@ -27,6 +28,7 @@ notifications: 3
  */
 function BottomNav({ user, menuItems, isActive }) {
 const navigate = useNavigate();
+const { isDarkTheme } = ThemeStore();
 
 // Filter menu items to only show those with showMobile: true
 const mobileMenuItems = menuItems.filter(item => item.showMobile === true);
@@ -50,7 +52,7 @@ return (
         <div className={`transition-colors duration-300 ${active ? "text-primaryLight" : "text-primary"}`}>
             <Icon 
             isPressed={active} 
-            isDarkTheme={false} 
+            isDarkTheme={isDarkTheme} 
             defaultColor={active ? "#1E8E54" : "#145B47"} 
             />
         </div>
@@ -73,6 +75,7 @@ return (
 function SideTab({ user }) {
 const navigate = useNavigate();
 const location = useLocation();
+const { isDarkTheme } = ThemeStore();
 
 const menuConfig = {
 Resident: [
@@ -125,6 +128,7 @@ return currentItem ? currentItem.label : "Dashboard";
 }
 
 return (
+<div className={isDarkTheme ? "dark" : ""}>
 <div className="flex h-screen overflow-hidden">
     {/* DESKTOP SIDEBAR - Background updated to primary */}
     <aside className="hidden md:flex w-64 h-full bg-primary border-r border-primary flex-col z-20 shrink-0 transition-all duration-300">
@@ -155,7 +159,7 @@ return (
             >
             <Icon 
                 isPressed={active} 
-                isDarkTheme={active} 
+                isDarkTheme={isDarkTheme} 
                 defaultColor={active ? "white" : "#ECF7F0"}
                 OnpressColor="white"
                 DarkThemeColor="white"
@@ -201,7 +205,7 @@ return (
 
         <div className="flex items-center gap-3 md:gap-6">
         <button className="p-2 hover:bg-secondary rounded-full transition-colors relative">
-            <Notification isPressed={false} isDarkTheme={false} defaultColor="black" />
+            <Notification isPressed={false} isDarkTheme={isDarkTheme} defaultColor="black" />
             {mockProfile.notifications > 0 && (
             <span className="absolute top-1 right-1 w-4 h-4 bg-error text-white text-[10px] flex items-center justify-center rounded-full font-bold border-2 border-white">
                 {mockProfile.notifications}
@@ -243,6 +247,7 @@ return (
         isActive={isActive} 
     />
     </div>
+</div>
 </div>
 );
 }

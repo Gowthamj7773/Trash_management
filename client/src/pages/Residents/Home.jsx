@@ -12,6 +12,7 @@ import {
 import MyReports from "../../components/Cards/Residents/MyReports";
 import Pagination from "../../utils/Pagination";
 import { useNavigate } from "react-router-dom";
+import ThemeStore from "../../store/ThemeStore";
 
 // Mock Data declared at component top level
 const mockReports = [
@@ -26,8 +27,10 @@ const mockReports = [
 
 function Home() {
     const navigate = useNavigate();
+    const { isDarkTheme } = ThemeStore();
 
     return (
+        <div className={isDarkTheme ? "dark" : ""}>
         <div className="min-h-screen bg-background animate-in fade-in duration-700 pb-20 lg:pb-0">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
             
@@ -198,6 +201,7 @@ function Home() {
             </div>
             </div>
 
+        </div>
         </div>
         </div>
     );
