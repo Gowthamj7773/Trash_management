@@ -42,6 +42,9 @@ import { TbRouteSquare } from "react-icons/tb";
 import { MdAdd } from "react-icons/md";
 import { RiSubtractLine } from "react-icons/ri";
 
+//info
+import { FaInfo } from "react-icons/fa6";
+
 const defaultSize = 25;
 const defaultColor = "black";
 const DarkThemeColor = "#fff";
@@ -188,4 +191,7 @@ export function ZoomIn({ size, isPressed = false, isDarkTheme = false, defaultCo
 }
 export function ZoomOut({ size, isPressed = false, isDarkTheme = false, defaultColor = "black", DarkThemeColor = "#fff", OnpressColor = "#1E8E54" }) {
     return <Icons Icon={RiSubtractLine} size={size} isPressed={isPressed} isDarkTheme={isDarkTheme} defaultColor={defaultColor} DarkThemeColor={DarkThemeColor} OnpressColor={OnpressColor} />;
+}
+export function Info({ size, isPressed = false, isDarkTheme = false, defaultColor = "black", DarkThemeColor = "#fff", OnpressColor = "#1E8E54" }) {
+    return <Icons Icon={FaInfo} size={size} isPressed={isPressed} isDarkTheme={isDarkTheme} defaultColor={defaultColor} DarkThemeColor={DarkThemeColor} OnpressColor={OnpressColor} />;
 }

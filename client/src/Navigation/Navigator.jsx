@@ -18,11 +18,19 @@ import RouteTimings from "../pages/RouteTimings/RouteTimings";
 import Quiz from "../pages/Quiz/Quiz";
 import TakeQuiz from "../pages/Quiz/TakeQuiz";
 
+//TrashMan
+import TrashManDashboard from "../pages/TrashMan/TrashManDashBoard";
+import UploadAttendance from "../pages/TrashMan/Attendance/UploadAttendance";
+import TrashManFeedBack from "../pages/TrashMan/TrashmanFeedback";
+import ImmediateTasks from "../pages/TrashMan/ImmediateTasks/ImmediateTasks";
+//Id card
+import IdentityCard from "../pages/IdentityCard/IdentityCard";
+
 
 
 
 // Mock User - Change role to test: "Resident", "TrashMan", "SuperVisor", "SanittaryInspector", "MHO"
-const mockUser = { role: "Resident", name: "Alex Rivera" };
+const mockUser = { role: "TrashMan", name: "Alex Rivera" };
 
 function Navigator() {
 return (
@@ -56,13 +64,15 @@ return (
         {/* TRASH MAN ROUTES */}
         {mockUser?.role === "TrashMan" && (
             <>
-            <Route index element={<div>TrashMan Daily Overview</div>} />
-            <Route path="routes-timing" element={<div>Route Timings Map</div>} />
-            <Route path="immediate-tasks" element={<div>Task List</div>} />
-            <Route path="photo-upload" element={<div>Camera Upload Interface</div>} />
+            <Route index element={<TrashManDashboard/>} />
+            <Route path="route-timings" element={<RouteTimings/>} />
+            <Route path="immediate-tasks" element={<ImmediateTasks/>} />
+            <Route path="upload-attendance" element={<UploadAttendance/>} />
             <Route path="statistics" element={<div>Work Statistics</div>} />
-            <Route path="feedback" element={<div>Report Issues</div>} />
-            <Route path="settings" element={<div>Worker Settings</div>} />
+            <Route path="feedback" element={<TrashManFeedBack/>} />
+            <Route path="quiz" element={<Quiz/>} />
+            <Route path="settings" element={<Settings/>} />
+            <Route path="id-card" element={<IdentityCard/>} />
             </>
         )}
 

@@ -144,7 +144,7 @@ function TrashRoute() {
 
         <div className="mt-2 lg:mt-0 lg:ml-2 rounded-medium w-full lg:w-96 bg-white border-t lg:border-t-0 lg:border-l border-secondary p-4 sm:p-5 lg:p-6">
           <div className="mb-6">
-            <h2 className="text-lg sm:text-xl font-bold text-secondaryDark">Trash Routes</h2>
+            <h2 className="text-base sm:text-lg font-bold text-secondaryDark">Trash Routes</h2>
             <p className="text-xs sm:text-sm text-secondaryDark mt-1">
               {routes.length} active routes
             </p>
@@ -179,7 +179,7 @@ function TrashRoute() {
                           >
                             <div className="flex items-start justify-between mb-3">
                               <div className="flex-1 min-w-0 pr-2">
-                                <h4 className="text-sm sm:text-base font-semibold text-secondaryDark mb-1 truncate">
+                                <h4 className="text-xs sm:text-sm font-semibold text-secondaryDark mb-1 truncate">
                                   {route.name}
                                 </h4>
                                 <p className="text-xs text-secondaryDark">

@@ -90,7 +90,7 @@ Resident: [
 ],
 TrashMan: [
     { id: "", label: "Home", icon: Home, showMobile: true },
-    { id: "routes-timing", label: "Routes", icon: Map, showMobile: true },
+    { id: "route-timings", label: "Routes", icon: Map, showMobile: true },
     { id: "immediate-tasks", label: "Tasks", icon: Task, showMobile: true },
     { id: "statistics", label: "Stats", icon: Stats, showMobile: true },
     { id: "settings", label: "Settings", icon: Settings, showMobile: true },

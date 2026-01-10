@@ -139,7 +139,7 @@ function ReportTrash() {
 
     return (
         <div className={isDarkTheme ? "dark" : ""}>
-        <div className="min-h-screen bg-background animate-in fade-in duration-500 p-4 md:p-8">
+        <div className="min-h-screen bg-background animate-in fade-in duration-500">
             <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 
