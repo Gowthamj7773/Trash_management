@@ -207,6 +207,19 @@ function TrashManDashboard() {
                             </div>
                         </div>
 
+                        {/* ID card */}
+                        <div 
+                            onClick={()=>navigate("id-card")}
+                            className="hover:bg-primary hover:text-white bg-white shrink-0 w-40 h-36 rounded-large p-4 flex flex-col justify-center items-center text-left snap-start transition-all duration-200 hover:scale-[0.99] active:scale-[0.99] shadow-md cursor-pointer"
+                        >
+                            <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-3">
+                                <Certificate size={22} isPressed={false} defaultColor="#145B47" />
+                            </div>
+                            <div className="text-center">
+                                <p className="text-sm font-bold leading-tight">ID card</p>
+                                <p className="text-xs mt-1 font-medium opacity-80">View ID card</p>
+                            </div>
+                        </div>
                         {/* Quiz */}
                         <div 
                             onClick={()=>navigate("quiz")}
@@ -314,6 +327,23 @@ function TrashManDashboard() {
                                 <div className="text-left">
                                     <p className="text-xs font-bold text-black tracking-tight">Create Feedback Session</p>
                                     <p className="text-xs text-gray-500 font-medium">QR/OTP verification</p>
+                                </div>
+                            </div>
+                            <RightArrow size={14} isPressed={false} isDarkTheme={false} />
+                        </div>
+
+                        {/* ID card */}
+                        <div 
+                            onClick={()=>navigate("id-card")}
+                            className="w-full flex items-center justify-between p-3.5 bg-white border border-secondary rounded-large hover:border-primaryLight hover:scale-[0.99] active:scale-[0.99] transition-all duration-200 cursor-pointer group"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-primary rounded-large shadow-sm group-hover:bg-primaryLight transition-colors">
+                                    <Certificate size={18} isPressed={false} isDarkTheme={true} />
+                                </div>
+                                <div className="text-left">
+                                    <p className="text-xs font-bold text-black tracking-tight">ID Card</p>
+                                    <p className="text-xs text-gray-500 font-medium">View your ID card</p>
                                 </div>
                             </div>
                             <RightArrow size={14} isPressed={false} isDarkTheme={false} />
